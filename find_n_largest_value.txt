@@ -1,0 +1,26 @@
+def find_n_largest_element(array, n):
+    
+    
+    length_of_array = len(array)
+    
+    for iteration in range(length_of_array):
+        
+        for compare in range(0, length_of_array-iteration-1):
+            
+            if array[compare] < array[compare+1]:
+                
+                array[compare], array[compare + 1] = array[compare+1], array[compare]
+    
+    
+    return array, array[n-1]
+    
+
+input_list = list(map(int, input("please give the input as int or float :").split(" ")))
+
+largest_number = int(input("enter the place of the largest number to find :"))
+
+desc_order, n_largest_number = find_n_largest_element(input_list, largest_number)
+
+print(f"{desc_order}")
+
+print(f"{n_largest_number}")
